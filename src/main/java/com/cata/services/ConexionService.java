@@ -31,12 +31,17 @@ public class ConexionService {
 		return conexionRepository.findById(idConexion).get();
 	}
 	
-	public Conexion encontrarConexionUbicacionO(Ubicacion ubicacionO) {
-		return conexionRepository.findByUbicacionO(ubicacionO).get();
+	public List<Conexion> encontrarConexionUbicacionO(Ubicacion ubicacionO) {
+		return conexionRepository.findByUbicacionO(ubicacionO);
 	}
 	
 	public void eliminarConexion(Long idConexion) {
 		conexionRepository.deleteById(idConexion);
 	}
+	
+	public int contarConexiones() {
+		return conexionRepository.findAll().size();
+	}
+	
 	
 }

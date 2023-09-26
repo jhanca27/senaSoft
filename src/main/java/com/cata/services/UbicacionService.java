@@ -1,5 +1,6 @@
 package com.cata.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,4 +38,18 @@ public class UbicacionService {
 	public void eliminarUbicacion(Long idUbicacion) {
 		ubicacionRepository.deleteById(idUbicacion);
 	}
+	
+	public int contarUbicaciones() {
+		return ubicacionRepository.findAll().size();
+	}
+	
+	public List<String> encontrarListaNombreNodo(){
+		List<Ubicacion> listaUbicacion = ubicacionRepository.findAll();
+		List<String> listaNombres = new ArrayList<>();
+		for(Ubicacion ubicacion:listaUbicacion) {
+			listaNombres.add(ubicacion.getNombre());
+		}
+		return listaNombres;
+	}
+
 }
