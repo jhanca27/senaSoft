@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Agregar conexion</h1>
+
+    <form th:action="@{/Ubicacion/save}" method="post" th:object="ObjConexion">
+        <label for="peso">Distancia</label>
+        <input type="text" th:field="${ObjConexion.peso}" name="peso" id="peso">
+        <br>
+        <label for="Ubicacion ONE">Ubicacion 1</label>
+        <input type="text" th:field="${ObjConexion.ubicacionO}" name="ubicacionO" id="ubicacionO">
+        <br>
+        <label for="Ubicacion Second">Ubicacion 2</label>
+        <input type="text" th:field="${ObjConexion.ubicacionT}" name="ubicacionT" id="ubicacionT">
+
+        <button type="submit">Guardar Conexion</button>
+
+    </form>
+
+
+
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/jquery.js}"></script>
+</body>
+</html>

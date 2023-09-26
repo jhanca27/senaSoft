@@ -23,10 +23,10 @@ public class UbicacionControlador {
 	@PostMapping("/save")
 	public String save(@ModelAttribute ("ObjUbicacion") Ubicacion ubicacion) {
 		ubicacionService.guardarUbicacion(ubicacion);
-		return "redirect:/Ubicacion/List";
+		return "redirect:/Ubicacion/formSave";
 	}
 	
-	@PostMapping("/update")
+	@PostMapping("/update/{idUbicacion}")
 	public String UpDate(@ModelAttribute("ObjUbicacion") Ubicacion ubicacion) {
 		ubicacionService.actualizarUbicacion(ubicacion);
 		return "redirect:/Ubicacion/List";
@@ -41,7 +41,7 @@ public class UbicacionControlador {
 	@GetMapping("/delete/idUbicacion")
 	public String delet(@PathVariable ("idUbicacion") Long idUbicacion) {
 		ubicacionService.eliminarUbicacion(idUbicacion);
-		return "";
+		return "Ubicaciones";
 	}
 	
 	@GetMapping("/formSave")
