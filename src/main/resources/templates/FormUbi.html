@@ -13,7 +13,7 @@
     <h1>Agrega una Ubicación Nueva</h1>
 
 
-    <form action="@{/Ubicación/save}" object="${ObjUbicacion}" method="post">
+    <form action="@{/Ubicacion/save}" object="${ObjUbicacion}" method="post">
         <label for="nombre">Nombre de la Ubicación</label>
         <input type="text" th:field="${nombre}" required name="nombre" id="nombre">
         <br>
