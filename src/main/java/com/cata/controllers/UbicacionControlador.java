@@ -1,6 +1,9 @@
 package com.cata.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 
 import com.cata.models.Ubicacion;
 import com.cata.services.UbicacionService;
@@ -38,7 +42,7 @@ public class UbicacionControlador {
 		return "Ubicaciones";
 	}
 	
-	@GetMapping("/delete/idUbicacion")
+	@GetMapping("/delete/{idUbicacion}")
 	public String delet(@PathVariable ("idUbicacion") Long idUbicacion) {
 		ubicacionService.eliminarUbicacion(idUbicacion);
 		return "Ubicaciones";
@@ -49,9 +53,5 @@ public class UbicacionControlador {
 		model.addAttribute("ObjUbicacion", new Ubicacion());
 		return "FormUbi";
 	}
-	
-	
-	
-	
 	
 }
