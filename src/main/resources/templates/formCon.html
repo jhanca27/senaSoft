@@ -10,16 +10,20 @@
     
     <h1>Agregar conexion</h1>
 
-    <form th:action="@{/Ubicacion/save}" method="post" th:object="ObjConexion">
+    <form th:action="@{/Conexion/save}" method="post" th:object="${ObjConexion}">
         <label for="peso">Distancia</label>
         <input type="text" th:field="${ObjConexion.peso}" name="peso" id="peso">
         <br>
         <label for="Ubicacion ONE">Ubicacion 1</label>
-        <input type="text" th:field="${ObjConexion.ubicacionO}" name="ubicacionO" id="ubicacionO">
+        <select th:field="${ObjConexion.ubicacionO}" >
+            <option th:each="Ubicacion : ${listUbicaciones}" th:value="${Ubicacion.idUbicacion}" th:text="${Ubicacion.nombre}"></option>
+        </select>
         <br>
         <label for="Ubicacion Second">Ubicacion 2</label>
-        <input type="text" th:field="${ObjConexion.ubicacionT}" name="ubicacionT" id="ubicacionT">
-
+        <select th:field="${ObjConexion.ubicacionT}">
+            <option th:each="Ubicacion : ${listUbicaciones}" th:value="${Ubicacion.idUbicacion}" th:text="${Ubicacion.nombre}"></option>
+        </select>
+        <br>
         <button type="submit">Guardar Conexion</button>
 
     </form>
