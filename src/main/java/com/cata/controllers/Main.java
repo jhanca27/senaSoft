@@ -24,6 +24,7 @@ public class Main {
 			}
 			System.out.println("");
 		}
+		rutaServicio.DijkstraAlgorithm(matriz, 1, 6);
 		return "hola";
 	}
 }
