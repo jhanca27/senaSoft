@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <title>Home</title>
+</head>
+<body>
+    
+    <h1>CATA Pagina Principal</h1>
+
+
+    <a th:href="@{/Principal/dirCarga}">
+        <button type="button">Cargar Archivo</button>
+    </a>
+
+    <a th:href="@{/Ubicacion/List}">
+        <button type="button" class="btn btn-outline-primary">Ubicaciones</button>
+    </a>
+
+
+
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/jquery.js}"></script>
+</body>
+</html>

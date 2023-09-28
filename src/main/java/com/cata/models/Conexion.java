@@ -23,22 +23,22 @@ public class Conexion {
 	private int peso;
 	
 	@ManyToOne(optional = false,fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	private Ubicacion ubicacionO;
+	private Ubicacion ubicacion1;
 	
 	
 	@ManyToOne(optional = false, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	private Ubicacion ubicacionT;
+	private Ubicacion ubicacion2;
 	
 	public Conexion() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Conexion(Long idConexion, @NotNull int peso, Ubicacion ubicacionO, Ubicacion ubicacionT) {
+	public Conexion(Long idConexion, @NotNull int peso, Ubicacion ubicacion1, Ubicacion ubicacion2) {
 		super();
 		this.idConexion = idConexion;
 		this.peso = peso;
-		this.ubicacionO = ubicacionO;
-		this.ubicacionT = ubicacionT;
+		this.ubicacion1 = ubicacion1;
+		this.ubicacion2 = ubicacion2;
 	}
 
 	public Long getIdConexion() {
@@ -57,20 +57,20 @@ public class Conexion {
 		this.peso = peso;
 	}
 
-	public Ubicacion getUbicacionO() {
-		return ubicacionO;
+	public Ubicacion getUbicacion1() {
+		return ubicacion1;
 	}
 
-	public void setUbicacionO(Ubicacion ubicacionO) {
-		this.ubicacionO = ubicacionO;
+	public void setUbicacion1(Ubicacion ubicacion1) {
+		this.ubicacion1 = ubicacion1;
 	}
 
-	public Ubicacion getUbicacionT() {
-		return ubicacionT;
+	public Ubicacion getUbicacion2() {
+		return ubicacion2;
 	}
 
-	public void setUbicacionT(Ubicacion ubicacionT) {
-		this.ubicacionT = ubicacionT;
+	public void setUbicacion2(Ubicacion ubicacion2) {
+		this.ubicacion2	 = ubicacion2;
 	}	
 	
 }

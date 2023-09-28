@@ -31,8 +31,8 @@ public class ConexionService {
 		return conexionRepository.findById(idConexion).get();
 	}
 	
-	public List<Conexion> encontrarConexionUbicacionO(Ubicacion ubicacionO) {
-		return conexionRepository.findByUbicacionO(ubicacionO);
+	public List<Conexion> encontrarConexionUbicacionO(Ubicacion ubicacion1) {
+		return conexionRepository.findByUbicacion1(ubicacion1);
 	}
 	
 	public void eliminarConexion(Long idConexion) {

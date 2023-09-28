@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <title>Add Ubication</title>
+</head>
+<body>
+    
+    <h1>Agrega una Ubicación</h1>
+
+    <form th:action="@{/Ubicacion/save}" method="post" th:object="${ObjUbicacion}">
+
+        <label for="nombre">Ubicación:</label>
+        <input type="text" th:field="${ObjUbicacion.nombre}">
+        <br>
+        <label for="posX">Posicion en X:</label>
+        <input type="number" th:field="${ObjUbicacion.posX}">
+        <br>
+        <label for="posY">Posicion en Y:</label>
+        <input type="number" th:field="${ObjUbicacion.posY}">
+        <br>
+        <button type="submit">Guardar Ubicacion</button>
+
+    </form>
+
+
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/jquery.js}"></script>
+</body>
+</html>
