@@ -51,7 +51,7 @@ public class UbicacionControlador {
 	@GetMapping("/formSave")
 	public String formSave(Model model) {
 		model.addAttribute("ObjUbicacion", new Ubicacion());
-		return "FormUbi";
+		return "formUbi";
 	}
 	
 }

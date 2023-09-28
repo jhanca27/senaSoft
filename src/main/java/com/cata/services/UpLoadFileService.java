@@ -10,8 +10,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.cata.repositories.CargaRepository;
+
 @Service
-public class UpLoadFileService {
+public class UpLoadFileService implements CargaRepository{
+	
+	
+	
 
 	private String folder = "cargas//";
 	private final Logger logg = LoggerFactory.getLogger(UpLoadFileService.class);

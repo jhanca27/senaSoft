@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Agregar Conexion</h1>
+
+    <form th:action="@{/Conexion/save}" method="post" th:object="${ObjConexion}">
+
+        <label for="peso">Ingresa el peso de la conexión:</label>
+        <input type="number" th:field="${ObjConexion.peso}">
+        <br>
+        <label for="UbicacionO">Ubicacion de Inicio:</label>
+        <select th:field="${ObjConexion.UbicacionO}" name="UbicacionO" id="">
+            <option th:each="Ubicacion: ${listUbicaciones}" th:value="${ObjConexion.UbicacionO}" th:text="${Ubicacion.nombre}"></option>
+        </select>
+        <br>
+        <label for="UbicacionT">Ubicacion de Inicio:</label>
+        <select th:field="${ObjConexion.UbicacionT}" name="UbicacionT" id="">
+            <option th:each="Ubicacion: ${listUbicaciones}" th:value="${ObjConexion.UbicacionT}" th:text="${Ubicacion.nombre}"></option>
+        </select>
+        <br>
+        <button type="submit">Guardar Conexion</button>
+
+    </form>
+
+
+
+
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/jquery.js}"></script>
+</body>
+</html>

@@ -24,7 +24,7 @@ public class UpLoadFileController {
 	@GetMapping("/")
 	public String carga(@PathVariable ("archivos") MultipartFile file) {
 		uploadService.SaveJson(file);
-		return "redirect:/Principal/";
+		return "redirect:/Ubicacion/formSave";
 	}
 	
 	
