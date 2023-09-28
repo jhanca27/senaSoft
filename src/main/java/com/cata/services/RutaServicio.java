@@ -82,27 +82,32 @@ public class RutaServicio {
 		int refi = 0;
 		int refj = 0;
 		int pesoTotal = 0;
+		boolean valor = false;
 		
 		
 		for(int i=source; i < n; i++) {
 			int minDistance = Integer.MAX_VALUE;
 			for(int j = 0 ; j < n ;j++) {
 				if(refi == j && refj ==i) {
+					if(j==n-1) {
+						matrizOperacion[i][j] = -matrizOperacion[i][j];
+						matrizOperacion[j][i] = -matrizOperacion[j][i];
+						distancias = new int[n];
+						rutas = new Integer[n];
+		
+					}	
 					 continue;
 				  }
-				if(matrizOperacion[i][j] != 0 && matrizOperacion[i][j] < minDistance ) {
-				  distancias[contador] = matriz[i][j];
+				if(matrizOperacion[i][j] != 0 && matrizOperacion[i][j] < minDistance && j!=source && matrizOperacion[i][j]>0 ) {
+				  distancias[contador] = matrizOperacion[i][j];
 				  rutas[contador] = j;
 				  contador += 1;
 				  refi = i;
 				  refj = j;
 				  i = j-1;
-				  
 				 
 				  if(destination-1 == j) {
-					  matrizOperacion[refi][refj] = Integer.MAX_VALUE; 
-					  
-					  //listaPesos.add(Arrays.asList(distancias).stream().mapToInt(Integer::intValue).sum());
+					  matrizOperacion[refi][refj] = -matrizOperacion[refi][refj]; 
 					  pesoTotal = Arrays.stream(distancias).parallel().reduce(0,(a,b)->  a + b);
 					  listaPesos.add(pesoTotal);
 					  List<Integer> lista = new ArrayList<Integer>(Arrays.asList(rutas));
@@ -111,7 +116,7 @@ public class RutaServicio {
 					  distancias = new int[n];
 					  rutas = new Integer[n];
 					  
-					  i = source;
+					  i = source-1;
 					  j = -1;
 					  contador = 0;
 					  break;
@@ -119,13 +124,27 @@ public class RutaServicio {
 				  
 				  break;
 				}
-				if(i == 0 && j == destination-1) {
+				if(i == source && j == n-1) {
 					i=n;
+					break;
 				}
-				if(i!=0 && i!= n && j == n-1){
-					matriz[refi][refj] = Integer.MAX_VALUE;
-					i = source;
+				if(i!=source && j == n-1){
+					matrizOperacion[refi][refj] = -matrizOperacion[refi][refj];
+					if(refi == source) {
+						matrizOperacion[refj][refi] = Integer.MAX_VALUE;
+						for(int q = 0; q<n;q++) {
+							for(int r = 0; r<n;r++) {
+								if(q != source && matrizOperacion[q][r]<0) {
+										matrizOperacion[q][r]= -matrizOperacion[q][r];
+								}
+							}
+						}
+					}
+					i = source-1;
 					contador=0;
+					distancias = new int[n];
+					rutas = new Integer[n];
+					
 				}
 			}		
 		}

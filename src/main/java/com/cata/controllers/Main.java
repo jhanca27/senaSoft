@@ -17,14 +17,9 @@ public class Main {
 	@GetMapping("/")
 	public String matriz() {
 		int matriz[][] = rutaServicio.llenadoMatriz();
-		for(int i=0; i<matriz.length; i++) {
-			for(int j=0 ; j<matriz.length;j++) {
-				System.out.print(matriz[i][j]);
-				System.out.print(" ");
-			}
-			System.out.println("");
-		}
-		rutaServicio.DijkstraAlgorithm(matriz, 1, 6);
+		
+		rutaServicio.DijkstraAlgorithm(matriz, 0, 2);
+		
 		return "hola";
 	}
 }
