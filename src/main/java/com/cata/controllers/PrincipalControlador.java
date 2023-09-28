@@ -13,4 +13,9 @@ public class PrincipalControlador {
 		return "Principal";
 	}
 	
+	@GetMapping("/dirCarga")
+	public String cargaArchivos() {
+		return "UpLoadFileJSON";
+	}
+	
 }

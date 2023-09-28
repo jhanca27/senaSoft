@@ -7,11 +7,11 @@
 </head>
 <body>
     <h1>Carga de Archivos:</h1>
-    <form action="@{/Carga/}" enctype="multipart/form-data" method="post">
-        <label for="archivos"></label>
-        <input type="file" name="archivos">
-        <button type="submit"></button>
+    <form method="post" th:action="@{/Carga/cargar-json}" enctype="multipart/form-data">
+        <input type="file" name="archivo" />
+        <input type="submit" value="Cargar JSON" />
     </form>
+    
 
 </body>
 </html>
